@@ -1,14 +1,11 @@
-export default function Studentinfo()
+export default function Studentinfo({name, github})
 {
     return(
     
         <div>
-            <h1>Michael Lalonde</h1>
-            <h2>asdf</h2>
-        </div>
-
-    )
-
-
+        name:"Michael Lalonde"
+        github: "https://github.com/Michael-lalonde/cprg306-assignments"
+        </div>       
+    );
 
 }
