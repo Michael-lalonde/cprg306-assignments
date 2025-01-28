@@ -1,7 +1,7 @@
 export default function StudentInfo({ name, github }) {
     return (
         <div>
-            <p>{name}</p>
+           <h1>{name}</h1>
             <a href={github}>{github}</a>
         </div>
     );
