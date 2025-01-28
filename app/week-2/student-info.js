@@ -1,11 +1,9 @@
-export default function Studentinfo({name, github})
-{
-    return(
-    
+export default function StudentInfo({ name, github }) {
+    return (
         <div>
-        name = Michael Lalonde
-        github = https://github.com/Michael-lalonde/cprg306-assignments"
-        </div>       
-    );
+            <p>{name}</p>
+            <a href={github} target="_blank" rel="noopener noreferrer"> {github} </a>
 
+        </div>
+    );
 }
