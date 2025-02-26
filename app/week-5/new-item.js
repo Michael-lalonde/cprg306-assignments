@@ -1,10 +1,8 @@
 'use client';
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({ quantity, setQuantity })  {
   
-  const [quantity, setQuantity] = useState(1);
-
   
   const increment = () => {
     if (quantity < 20) {

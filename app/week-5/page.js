@@ -16,7 +16,7 @@ export default function Page() {
     alert(`Name: ${name}, Quantity: ${quantity}, Category: ${category}`);
     setName("");
     setCategory("produce");
-    
+    setQuantity(1)
   };
   
   return (
@@ -25,7 +25,7 @@ export default function Page() {
 
       <div className="text-gray-700">
       <label htmlFor="quantity" className="block text-sm font-medium text-gray-700"></label>Quantity
-          <NewItem quantity={quantity} setQuantity={setQuantity}></NewItem>
+      <NewItem quantity={quantity} setQuantity={setQuantity} /> 
       </div>
 
     
