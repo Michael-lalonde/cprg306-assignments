@@ -16,15 +16,14 @@ export default function Page() {
     alert(`Name: ${name}, Quantity: ${quantity}, Category: ${category}`);
     setName("");
     setCategory("produce");
-    setQuantity(1)
+     setQuantity(1)
   };
   
   return (
     <main className=" bg-black flex justify-center p-6">
       <form onSubmit={handleSubmit} className="bg-gray-200 shadow-lg rounded-lg p-8 space-y-6 w-1/4 max-w-md">
-
-      <div className="text-gray-700">
-      <label htmlFor="quantity" className="block text-sm font-medium text-gray-700"></label>Quantity
+      <div className="text-lg text-gray-700">
+      <label htmlFor="quantity"></label>Quantity
       <NewItem quantity={quantity} setQuantity={setQuantity} /> 
       </div>
 
@@ -37,16 +36,16 @@ export default function Page() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Item Name"
-            className="block text-sm font-medium text-gray-700"
+            className="text-lg font-medium text-gray-700"
           />
       </div>
 
    
 
       <div>
-          <label htmlFor="category" className="block text-sm font-medium text-gray-700">Category</label>
+          <label htmlFor="category" className="block text-lg font-medium text-gray-700">Category</label>
           <select
-            className="text-gray-700"
+            className="text-lg text-gray-700"
             id="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}>
