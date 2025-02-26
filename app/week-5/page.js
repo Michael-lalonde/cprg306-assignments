@@ -37,6 +37,7 @@ export default function Page() {
             onChange={(e) => setName(e.target.value)}
             placeholder="Item Name"
             className="text-lg font-medium text-gray-700"
+            required
           />
       </div>
 
