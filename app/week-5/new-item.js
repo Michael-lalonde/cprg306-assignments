@@ -25,12 +25,12 @@ export default function NewItem() {
     
         <div className="text-xl font-semibold">{quantity}</div>
 
-            <button className= "rounded-lg bg-red-700 hover:bg-red-500 active:bg-red-300 p-3"onClick={decrement} disabled={quantity === 1}> 
+            <button type="button" className= "rounded-lg bg-red-700 hover:bg-red-500 active:bg-red-300 p-3"onClick={decrement} disabled={quantity === 1}> 
           -
             </button>
         
         
-            <button className="rounded-lg bg-emerald-900 hover:bg-emerald-500 active:bg-emerald-300 p-3"
+            <button type="button" className="rounded-lg bg-emerald-900 hover:bg-emerald-500 active:bg-emerald-300 p-3"
           onClick={increment}
           disabled={quantity === 20}
             >
