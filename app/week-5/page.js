@@ -1,7 +1,7 @@
 'use client';
 import { useState } from "react";
 import NewItem from "./new-item";
-import Item from "../week-3/item";
+
 
 export default function Page() {
   
@@ -16,14 +16,6 @@ export default function Page() {
     setCategory("produce");
   };
   
-
-
-
-
-  
-
-
-
   return (
     <main>
     <NewItem></NewItem>
