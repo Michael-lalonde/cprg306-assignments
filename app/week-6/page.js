@@ -36,7 +36,7 @@ export default function Page() {  // Capitalized component name
                 {
                     list.map((item) => {
                         return (
-                            <Item key={item.id} id={item.id} name={item.name} quantity={item.quantity} category={item.category} />
+                            <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} />
                         )
                     })
                 }
