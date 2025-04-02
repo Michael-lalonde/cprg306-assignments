@@ -1,4 +1,5 @@
-'use client'
+'use client';
+
 import { useUserAuth } from "./_utils/auth-context";
 import Link from "next/link";
 
@@ -14,23 +15,26 @@ export default function Page() {
           <p className="mb-4 text-black">Please sign in to access your shopping list.</p>
           <button
             onClick={gitHubSignIn}
-            className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700"
+            className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition-colors"
           >
             Sign in with GitHub
           </button>
         </div>
       ) : (
         <div>
-          <p className="mb-2">
+          <p className="mb-2 text-black">
             Welcome, {user.displayName} ({user.email})
           </p>
           <div className="flex gap-4 mt-4">
-            <Link href="/week-9/shopping-list" className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+            <Link 
+              href="/week-10/shopping-list"
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+            >
               Go to Shopping List
             </Link>
             <button
               onClick={firebaseSignOut}
-              className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+              className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
             >
               Sign Out
             </button>

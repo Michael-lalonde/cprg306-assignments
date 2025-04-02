@@ -1,31 +1,50 @@
-"use client";
-import { useState } from "react";
-import ItemList from "./item-list";
+'use client';
+
+import { useState, useEffect } from "react";
+import { useUserAuth } from "../_utils/auth-context";
+import { getItems, addItem } from "../_services/shopping-list-service";
 import NewItem from "./new-item";
+import ItemList from "./item-list";
 import MealIdeas from "./meal-ideas";
-import itemsData from "./items.json";
 
 export default function Page() {
-  const [items, setItems] = useState(itemsData);
+  const { user } = useUserAuth();
+  const [items, setItems] = useState([]);
   const [selectedItemName, setSelectedItemName] = useState("");
 
-  const handleAddItem = (newItem) => {
-    setItems((prevItems) => [
-      ...prevItems,
-      { ...newItem, id: Date.now() },
-    ]);
-  };
+  useEffect(() => {
+    if (user) {
+      loadItems();
+    }
+  }, [user]);
+
+  async function loadItems() {
+    try {
+      const fetchedItems = await getItems(user.uid);
+      setItems(fetchedItems);
+    } catch (error) {
+      console.error("Error loading items: ", error);
+    }
+  }
+
+  async function handleAddItem(newItem) {
+    try {
+      const id = await addItem(user.uid, newItem);
+      setItems([...items, { ...newItem, id }]);
+    } catch (error) {
+      console.error("Error adding item: ", error);
+    }
+  }
 
   const handleItemSelect = (itemName) => {
     const nameWithoutSize = itemName.split(",")[0];
     const cleanedName = nameWithoutSize.replace(
-        /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
-        ""
-      );
+      /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
+      ""
+    );
     const finalName = cleanedName.trim();
     setSelectedItemName(finalName);
-};
-
+  };
 
   const sortByName = () => {
     const sortedItems = [...items].sort((a, b) =>
@@ -40,6 +59,14 @@ export default function Page() {
     );
     setItems(sortedItems);
   };
+
+  if (user === null) {
+    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  }
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className="bg-cyan-600 p-5 min-h-screen flex flex-col items-center">

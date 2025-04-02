@@ -29,7 +29,7 @@ export default function Home() {
      <h2>
       <Link href="week-9">Week 9 Assignment</Link>
      </h2>
-     <h2>Week 10 Assignment</h2>
+     <h2><Link href="week-10">Week 10 Assignment</Link></h2>
     </div>
   );
 }
